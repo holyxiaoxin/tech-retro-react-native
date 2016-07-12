@@ -8,6 +8,7 @@
 
 		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/night.css">
+		<link rel="stylesheet" href="css/custom.css">
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -26,13 +27,14 @@
 			<div class="slides">
 
 				<section>
-					<h2>React Native</h2>
+					<h2>React Native: Retrospective</h2>
 					<p>a revolutionary framework</p>
 				</section>
 
 
 				<section>
 					<h2>What is it?</h2>
+					<p>Build mobile applications with web technologies</p>
 					<p>Uses React to target platforms other than the browser</p>
 					<ul>
 						<li>iOS</li>
@@ -45,21 +47,28 @@
 				</section>
 
 				<section>
-					<h2>Pros</h2>
+					<h2>Advantages</h2>
 					<ul>
 						<li>Native-level performance</li>
 						<li>Learn once, write anywhere</li>
 					</ul>
+					<p>Performs noticeably better than hybrid apps(Ionic)</p>
+					<p>Shorter development time than building (android + ios) apps</p>
 				</section>
 
 				<section>
 					<h2>How does it work</h2>
-					<p>Abstractions in components</p>
-					<p>React native bridge</p>
-					<p>Platform specific native modules</p>
-					<p>Use almost any javascript utility libraries</p>
-					<p>Create your own component to native bridge</p>
-					<p>Endless possibilities!</p>
+					<div class='how-it-works-container'>
+						<div class='inner-container'><img src="img/rn1.png" width="500" height="250"></div>
+						<div class='inner-container'>
+							<p>Abstractions in components</p>
+							<p>React native bridge</p>
+							<p>Platform specific native modules</p>
+							<p>Use almost any javascript utility libraries</p>
+							<p>Create your own component to native bridge</p>
+							<p>Endless possibilities!</p>
+						</div>
+					</div>
 				</section>
 
 				<section>
@@ -67,9 +76,214 @@
 					<ul>
 						<li>Xcode for iOS</li>
 						<li>Genymotion for Android</li>
-						<li>Chrome debugger</li>
+						<li>Chrome debugger</li><a href="https://github.com/jhen0409/remote-redux-devtools-on-debugger">redux devtools for RN</a>
 						<li>Live reload/Hot reloading</li>
 					</ul>
+				</section>
+
+				<section>
+					<h1>React Native Components</h1>
+				</section>
+
+				<section>
+					<div class='component-api-container'>
+						<div><img src="img/rn2.png" width="150" height="500"></img></div>
+						<div><img src="img/rn3.png" width="150" height="500"></img></div>
+					</div>
+				</section>
+
+				<section>
+					<h3>Components are constantly being revised with developer happiness in mind.</h3>
+					<br/>
+					<p>Let's take a look at ListView.</p>
+				</section>
+
+				<section>
+					<h1>Retrospective</h1>
+					<p>the bad stuffs</p>
+				</section>
+
+				<section>
+					<p>Linux guide introduced after Feb 15, 2016</p>
+					<div><img src="img/rn4.png" width="600" height="400"></img></div>
+				</section>
+
+				<section>
+					<h3>Plenty of breaking changes and bugs</h3>
+					<br/>
+					<p>Latest 5 major versions have breaking changes</p>
+				</section>
+
+				<section>
+					<div><img src="img/rn6.png" width="450" height="400"></img></div>
+					<b>v0.25 - May 5, 2016</b> <br/>
+					- Requiring React API from react-native is now deprecated
+				</section>
+
+				<section>
+					<div><img src="img/rn7.png" width="500" height="60"></img></div>
+					<b>v0.26 - May 19, 2016</b> <br/>
+					- React API must be now required from react package (previously a warning on 0.25)
+				</section>
+
+				<section>
+					<h3>14 days</h3>
+					<p>breaks every packages - import React from 'react-native'</p>
+				</section>
+
+				<section>
+					<b>v0.21 - Mar 1, 2016</b>
+					<p>Upgrade android project</p>
+					<br/>
+					<b>v0.16 - Dec 5, 2015</b>
+					<p>Babel 6 upgrade</p>
+					<br/>
+					<b>v0.15 - Nov 24, 2015</b>
+					<p>Upgrade to Xcode 7</p>
+					<br/>
+					<b>v0.13 - Oct 24, 2015</b>
+					<p>React Native no longer published to CocoaPods</p>
+				</section>
+
+				<section>
+					<h3>Integration with facebook sdk</h3>
+					<p>v0.1 -> CocoaPods</p>
+					<div><img src="img/rn8.png" width="500" height="230"></img></div>
+					<p>v0.2 -> rnpm</p>
+					<div><img src="img/rn9.png" width="500" height="60"></img></div>
+				</section>
+
+				<section>
+					<h3>Soft keyboard firing up blocks input field</h3>
+					<p>Shift input field/ view by listening on keyboard events</p>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h4>In android</h4>
+						<pre><code>
+							<activity android:windowSoftInputMode="adjustPan|adjustResize"></activity>
+						</code></pre>
+					</script>
+				</section>
+
+				<section>
+					<h3>Orientation</h3>
+					<ul>
+						<li>Fixed orientation is easy</li>
+						<li>Alternating orientation doesn't work as expected</li>
+					</ul>
+					<br/>
+					<br/>
+					<p>Orientation bridge + Navigator lifecycle</p>
+					<p>switching orientation async vs. calculating window's dimension</p>
+				</section>
+
+				<section>
+					<h3>Need components that are not available</h3>
+					<p>Bridging with Native Modules</p>
+					<br/>
+					<ul>
+						<li>Writing high performance, multi-threaded code</li>
+						<li>Image processing</li>
+						<li>Database</li>
+						<li>Complex animations</li>
+						<li>Native APIs/SDK, e.g. (Shopify Buy SDK, Paypal SDK)</li>
+					</ul>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h3>Your Native Module</h3>
+						<code>
+
+								package com.facebook.react.modules.toast;
+								import com.facebook.react.bridge.ReactContextBaseJavaModule;
+								...
+								public class ToastModule extends ReactContextBaseJavaModule {
+									...
+									@Override
+								  public String getName() {
+								    return "ToastAndroid";
+								  }
+									@ReactMethod
+								  public void show(String message, int duration) {
+								    Toast.makeText(getReactApplicationContext(), message, duration).show();
+								  }
+								}
+						</code>
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h3>Register the module</h3>
+						<code>
+
+							class AnExampleReactPackage implements ReactPackage {
+							  @Override
+							  public List<Class<? extends JavaScriptModule>> createJSModules() {
+							    ...
+							  }
+
+							  @Override
+							  public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
+							  	...
+							  }
+
+							  @Override
+							  public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
+							    ...
+						  	}
+							}
+						</code>
+						<code>
+
+							// MainActivity.java
+							protected List<ReactPackage> getPackages() {
+							    return Arrays.<ReactPackage>asList(
+							            new MainReactPackage(),
+							            new AnExampleReactPackage()); // <-- Add this line with your package name.
+							}
+						</code>
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h3>Using it in JS</h3>
+						<code>
+
+							import { NativeModules } from 'react-native';
+							const { ToastAndroid } = NativeModules;
+
+							ToastAndroid.show('Awesome', ToastAndroid.SHORT);
+						</code>
+					</script>
+				</section>
+
+				<section>
+					<p>Complexity in rendering might result in slow performance</p>
+					<b>Profiling with Systrace</b>
+					<div><img src="img/rn5.png" width="750" height="400"></img></div>
+					<a href="https://youtu.be/0MlT74erp60">More on optimising React Native: Tools and Tips, by Tadeu Zagallo</a>
+				</section>
+
+				<section>
+					<h2>is React Native for everyone?</h2>
+				</section>
+
+				<section>
+					<h4>No (not really)</h4>
+					<br/>
+					<p>Using the right tools for the job</p>
+				</section>
+
+				<section>
+					<h2>React Native community is young</h2>
+					<br/>
+					<p>Contribute to RN components</p>
+					<a href="https://js.coach/react-native">JS Coach - RN</a>
 				</section>
 			</div>
 		</div>

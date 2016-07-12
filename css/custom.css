@@ -1,0 +1,16 @@
+.how-it-works-container {
+  display: flex
+}
+
+.how-it-works-container .inner-container {
+  padding: 20px;
+}
+
+.component-api-container {
+  display: flex;
+  justify-content: center;
+}
+
+.component-api-container div {
+  padding: 50px;
+}
