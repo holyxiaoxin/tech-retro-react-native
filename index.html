@@ -28,7 +28,7 @@
 
 				<section>
 					<h2>React Native: Retrospective</h2>
-					<p>a revolutionary framework</p>
+					<p>changing mobile development</p>
 				</section>
 
 
@@ -47,12 +47,15 @@
 				</section>
 
 				<section>
-					<h2>Advantages</h2>
+					<h2>Why it's good</h2>
+					<br/>
 					<ul>
 						<li>Native-level performance</li>
 						<li>Learn once, write anywhere</li>
 					</ul>
-					<p>Performs noticeably better than hybrid apps(Ionic)</p>
+					<br/>
+					<br/>
+					<p>Performs noticeably better than hybrid apps (Ionic)</p>
 					<p>Shorter development time than building (android + ios) apps</p>
 				</section>
 
@@ -82,14 +85,25 @@
 				</section>
 
 				<section>
+					<h2>Testing</h2>
+					<ul>
+						<li>Mocha + Enzyme (unit/integration)</li>
+						<li>Calabash or Appium (integration)</li>
+					</ul>
+				</section>
+
+				<section>
 					<h1>React Native Components</h1>
 				</section>
 
 				<section>
 					<div class='component-api-container'>
-						<div><img src="img/rn2.png" width="150" height="500"></img></div>
-						<div><img src="img/rn3.png" width="150" height="500"></img></div>
+						<div><img src="img/rn2.png" width="150" height="400"></img></div>
+						<div><img src="img/rn3.png" width="150" height="400"></img></div>
 					</div>
+
+					<p>Components: View, TextInput, Navigator, ListView, ...</p>
+					<p>APIs: PanResponder, Animated, BackAndroid, AppState, ...</p>
 				</section>
 
 				<section>
@@ -128,7 +142,7 @@
 
 				<section>
 					<h3>14 days</h3>
-					<p>breaks every packages - import React from 'react-native'</p>
+					<p>[import React from 'react-native'] - breaks every packages</p>
 				</section>
 
 				<section>
@@ -154,24 +168,10 @@
 				</section>
 
 				<section>
-					<h3>Soft keyboard firing up blocks input field</h3>
-					<p>Shift input field/ view by listening on keyboard events</p>
-				</section>
-
-				<section data-markdown>
-					<script type="text/template">
-						<h4>In android</h4>
-						<pre><code>
-							<activity android:windowSoftInputMode="adjustPan|adjustResize"></activity>
-						</code></pre>
-					</script>
-				</section>
-
-				<section>
 					<h3>Orientation</h3>
 					<ul>
-						<li>Fixed orientation is easy</li>
-						<li>Alternating orientation doesn't work as expected</li>
+						<li>Fixing an orientation</li>
+						<li>Alternating orientations</li>
 					</ul>
 					<br/>
 					<br/>
@@ -190,6 +190,11 @@
 						<li>Complex animations</li>
 						<li>Native APIs/SDK, e.g. (Shopify Buy SDK, Paypal SDK)</li>
 					</ul>
+				</section>
+
+				<section>
+					<h3>Writing your own Native Toast module</h3>
+					<p>Android</p>
 				</section>
 
 				<section data-markdown>
@@ -221,19 +226,13 @@
 						<code>
 
 							class AnExampleReactPackage implements ReactPackage {
-							  @Override
-							  public List<Class<? extends JavaScriptModule>> createJSModules() {
-							    ...
-							  }
-
-							  @Override
-							  public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
-							  	...
-							  }
+							  ...
 
 							  @Override
 							  public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
 							    ...
+									modules.add(new ToastModule(reactContext));
+									return modules;
 						  	}
 							}
 						</code>
@@ -257,6 +256,7 @@
 							import { NativeModules } from 'react-native';
 							const { ToastAndroid } = NativeModules;
 
+							...
 							ToastAndroid.show('Awesome', ToastAndroid.SHORT);
 						</code>
 					</script>
@@ -276,7 +276,8 @@
 				<section>
 					<h4>No (not really)</h4>
 					<br/>
-					<p>Using the right tools for the job</p>
+					<p>- Use the right tools for the job</p>
+					<p>- Young but fast growing community</p>
 				</section>
 
 				<section>
